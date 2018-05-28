@@ -1,0 +1,47 @@
+{
+  "questions": [
+    {
+      "section": "azure",
+      "actions": ["create_credential"],
+      "title": "subscription_id",
+      "text" : "Enter your Azure subscription id"
+    },
+    {
+      "section": "azure",
+      "actions": ["create_credential"],
+      "title": "client_id",
+      "text" : "Enter your Azure client id"
+    },
+    {
+      "section": "azure",
+      "actions": ["create_credential"],
+      "title": "client_secret",
+      "text" : "Enter your Azure client secret"
+    },
+    {
+      "section": "azure",
+      "actions": ["create_credential"],
+      "title": "tenant_id",
+      "text" : "Enter your Azure tenant id"
+    },
+    {
+      "section": "azure",
+      "title": "azure_location",
+      "text" : "Azure location",
+      "accepted" : ["eastus", "westus", "centralus"]
+    },
+    {
+      "section": "azure",
+      "actions": ["import"],
+      "title": "resource_group",
+      "text" : "Azure resource group"
+    },
+    {
+      "section": "azure",
+      "actions": ["create"],
+      "title" : "cluster_size",
+      "text": "Cluster size",
+      "accepted" : ["XS", "S", "M", "L", "XL"]
+    }
+  ]
+}

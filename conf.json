@@ -1,0 +1,7 @@
+{
+	"api-url": "https://apl.se.corp.maprtech.com/v1",
+    "propeller-ignore-ssl": "true",
+	"rabbit-host": "amqp.se.corp.maprtech.com",
+	"rabbit-port": "5672",
+	"rabbit-ssl": "false"
+}

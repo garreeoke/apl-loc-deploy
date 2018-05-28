@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "section": "aws",
+      "actions": ["create_credential"],
+      "title": "access_key_id",
+      "text" : "AWS access key id"
+    },
+    {
+      "section": "aws",
+      "actions": ["create_credential"],
+      "title": "access_key_secret",
+      "text" : "AWS access key secret"
+    },
+    {
+      "section": "aws",
+      "title": "top_level_domain",
+      "text" : "AWS top level domain "
+    },
+    {
+      "section": "aws",
+      "title": "region",
+      "text" : "AWS region",
+      "accepted" : ["us-east-1", "us-west-1"]
+    },
+    {
+      "section": "aws",
+      "title": "avalability_zone",
+      "text" : "AWS Avalability Zone",
+      "accepted" : ["us-east-1a", "us-east-1b", "us-west-1a", "us-west-1b"]
+    },
+    {
+      "section": "aws",
+      "actions": ["create"],
+      "title" : "cluster_size",
+      "text": "Cluster size",
+      "accepted" : ["XS", "S", "M", "L", "XL"]
+    }
+  ]
+}

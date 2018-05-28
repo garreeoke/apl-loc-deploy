@@ -1,0 +1,17 @@
+{
+  "questions": [
+    {
+      "section": "vsphere",
+      "actions": ["import"],
+      "title": "datastore",
+      "text" : "Enter datastore name"
+    },
+    {
+      "section": "vsphere",
+      "actions": ["import"],
+      "title": "diskformat",
+      "text" : "Enter disk format",
+      "accepted" : ["thin", "thick"]
+    }
+  ]
+}

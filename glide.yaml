@@ -1,0 +1,22 @@
+package: github.com/applariat/apl-loc-deploy
+ignore:
+- applariat.io/cluster-manager/cluster
+- applariat.io/propeller/common
+- applariat.io/cluster-manager/kops
+- applariat.io/cluster-manager/types
+- applariat.io/cluster-manager/ka8
+- applariat.io/cluster-manager/acs
+- applariat.io/propeller/types
+- applariat.io/propeller/work
+- applariat.io/propeller/gke
+- applariat.io/propeller/acs
+- applariat.io/propeller/aws
+- applariat.io/propeller/kube
+import:
+- package: applariat.io/propeller/common
+- package: applariat.io/propeller/kube
+- package: applariat.io/propeller/types
+- package: applariat.io/propeller/work
+- package: k8s.io/client-go
+  subpackages:
+  - pkg/api/v1

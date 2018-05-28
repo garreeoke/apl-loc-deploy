@@ -1,0 +1,29 @@
+{
+  "questions": [
+    {
+      "actions": ["create_credential"],
+      "title": "jwt_token_filename",
+      "text" : "Full or relative path to google JWT token"
+    },
+    {
+      "title": "google_project",
+      "text" : "Google cloud project "
+    },
+    {
+      "title": "google_region",
+      "text" : "Google cloud region",
+      "accepted" : ["us-central1", "us-east1", "us-west-1"]
+    },
+    {
+      "title": "google_zone",
+      "text" : "Google cloud zone",
+      "accepted" : ["us-central1-a", "us-central1-b", "us-central1-c", "us-east1-b", "us-east1-c", "us-east1-d", "us-west1-a", "us-west1-b", "us-west1-c"]
+    },
+    {
+      "actions": ["create"],
+      "title" : "cluster_size",
+      "text": "Cluster size",
+      "accepted" : ["XS", "S", "M", "L", "XL"]
+    }
+  ]
+}

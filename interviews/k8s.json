@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "title" : "kube_fqdn",
+      "text": "Enter fqdn or ip for your kubernetes cluster"
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "title" : "kube_port",
+      "text": "Enter port for your kubernetes cluster"
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "title": "auth_type",
+      "text" : "What type of authentication ",
+      "accepted" : ["basic", "certs"]
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "type" : "basic",
+      "title": "user",
+      "text" : "Enter kubernetes cluster user name: "
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "type" : "basic",
+      "title": "password",
+      "text" : "Enter kubernetes cluster user password: "
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "type" : "certs",
+      "title": "ca_cert",
+      "text" : "Enter CA Certificate (base64 encoded): "
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "type" : "certs",
+      "title": "client_key",
+      "text" : "Enter Client Key (base64 encoded): "
+    },
+    {
+      "section": "k8s",
+      "actions": ["import"],
+      "type" : "certs",
+      "title": "client_cert",
+      "text" : "Enter Client Certificate (base64 encoded): "
+    }
+  ]
+}

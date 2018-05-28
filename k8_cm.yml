@@ -1,0 +1,225 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pks
+  namespace: kube-system
+data:
+  apl-api: https://api.applariat.io/v1
+  apl-api-key: f25b771cddb4bfd76f4551b6ab4422054229c6103c42aaba8c79737182972689
+  silent.json: |
+    {
+    	"questions": [{
+    		"section": "general",
+    		"title": "action",
+    		"text": "Action",
+    		"accepted": ["create", "import", "delete"],
+    		"answer": "import"
+    	}, {
+    		"actions": ["create", "import"],
+    		"section": "general",
+    		"title": "loc_deploy_name",
+    		"text": "Cluster name",
+    		"answer": "pks1"
+    	}, {
+    		"actions": ["delete"],
+    		"section": "general",
+    		"title": "loc_deploy_id",
+    		"text": "Enter the loc_deploy_id you want to delete"
+    	}, {
+    		"actions": ["delete"],
+    		"section": "general",
+    		"title": "confirm_delete",
+    		"text": "Are you sure you want to delete",
+    		"accepted": ["yes", "no"],
+    		"answer": "no"
+    	}, {
+    		"actions": ["create", "import"],
+    		"section": "general",
+    		"title": "provider",
+    		"text": "Cloud provider",
+    		"accepted": ["aws", "azure", "gke", "metal", "vsphere"],
+    		"answer": "vsphere"
+    	}, {
+    		"actions": ["create"],
+    		"section": "general",
+    		"title": "provider_credential_id",
+    		"text": "What is the id of your appLariat credential for your provider"
+    	}, {
+    		"actions": ["create"],
+    		"section": "general",
+    		"title": "dns_enabled",
+    		"text": "Enable external dns",
+    		"accepted": ["true", "false"]
+    	}, {
+    		"actions": ["create"],
+    		"section": "general",
+    		"title": "hosted_zone",
+    		"text": "Hosted zone",
+    		"answer": "none"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_fqdn",
+    		"text": "Enter fqdn or ip for your kubernetes cluster",
+    		"answer": "xx.xx.xx.xx"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_port",
+    		"text": "Enter port for your kubernetes cluster",
+    		"answer": "443"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "auth_type",
+    		"text": "What type of authentication ",
+    		"accepted": ["basic", "certs"],
+    		"answer": "basic"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "datastore",
+    		"text": "Enter datastore name",
+    		"answer": "datastore1"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "diskformat",
+    		"text": "Enter disk format",
+    		"accepted": ["thin", "thick"],
+    		"answer": "thin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_fqdn",
+    		"text": "Enter fqdn or ip for your kubernetes cluster",
+    		"answer": "xx.xx.xx.xx"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_port",
+    		"text": "Enter port for your kubernetes cluster",
+    		"answer": "443"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "auth_type",
+    		"text": "What type of authentication ",
+    		"accepted": ["basic", "certs"],
+    		"answer": "basic"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "datastore",
+    		"text": "Enter datastore name",
+    		"answer": "datastore1"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "diskformat",
+    		"text": "Enter disk format",
+    		"accepted": ["thin", "thick"],
+    		"answer": "thin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_fqdn",
+    		"text": "Enter fqdn or ip for your kubernetes cluster",
+    		"answer": "xx.xx.xx.xx"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_port",
+    		"text": "Enter port for your kubernetes cluster",
+    		"answer": "443"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "auth_type",
+    		"text": "What type of authentication ",
+    		"accepted": ["basic", "certs"],
+    		"answer": "basic"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "datastore",
+    		"text": "Enter datastore name",
+    		"answer": "datastore1"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "diskformat",
+    		"text": "Enter disk format",
+    		"accepted": ["thin", "thick"],
+    		"answer": "thin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "datastore",
+    		"text": "Enter datastore name",
+    		"answer": "datastore1"
+    	}, {
+    		"actions": ["import"],
+    		"section": "vsphere",
+    		"title": "diskformat",
+    		"text": "Enter disk format",
+    		"accepted": ["thin", "thick"],
+    		"answer": "thin"
+    	}]
+    }

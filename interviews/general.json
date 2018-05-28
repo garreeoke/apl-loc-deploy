@@ -1,0 +1,57 @@
+{
+  "questions": [
+    {
+      "section": "general",
+      "title": "action",
+      "text" : "Action",
+      "accepted" : ["create", "import", "delete"]
+    },
+    {
+      "section": "general",
+      "actions": ["create", "import"],
+      "title": "loc_deploy_name",
+      "text" : "Cluster name"
+    },
+    {
+      "section": "general",
+      "actions": ["delete"],
+      "title": "loc_deploy_id",
+      "text" : "Enter the loc_deploy_id you want to delete"
+    },
+    {
+      "section": "general",
+      "actions": ["delete"],
+      "title": "confirm_delete",
+      "text" : "Are you sure you want to delete",
+      "accepted" : ["yes", "no"],
+      "answer" : "no"
+    },
+    {
+      "section": "general",
+      "actions": ["create", "import"],
+      "title": "provider",
+      "text" : "Cloud provider",
+      "accepted" : ["aws", "azure", "gke", "metal", "vsphere"]
+    },
+    {
+      "section": "general",
+      "actions": ["create"],
+      "title": "provider_credential_id",
+      "text" : "What is the id of your appLariat credential for your provider"
+    },
+    {
+      "section": "general",
+      "actions": ["create"],
+      "title": "dns_enabled",
+      "text" : "Enable external dns",
+      "accepted" : ["true", "false"]
+    },
+    {
+      "section": "general",
+      "actions": ["create"],
+      "title": "hosted_zone",
+      "text" : "Hosted zone",
+      "answer": "none"
+    }
+  ]
+}
