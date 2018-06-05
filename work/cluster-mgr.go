@@ -12,10 +12,6 @@ import (
 	"applariat.io/propeller/kube"
 )
 
-const (
-	image = "applariat/cluster-manager"
-)
-
 func ClusterMgr(interview *Interview) error {
 	jobid := ""
 	if os.Getenv("APL_LOC_JOBID") == "" {
@@ -61,6 +57,10 @@ func ClusterMgr(interview *Interview) error {
 }
 
 func k8Job(jobid string) error {
+	image := "applariat/cluster-manager"
+	if os.Getenv("APL_CLUSTER_MGR_TAG") != "" {
+		image = image + ":" + os.Getenv("APL_CLUSTER_MGR_TAG")
+	}
 	k8 := kube.K8{
 		DeployID: "cluster-mgr",
 		Name: "cluster-mgr",
