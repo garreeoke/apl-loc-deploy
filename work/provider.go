@@ -52,8 +52,15 @@ func ProviderQuestions(interview *Interview) error {
 		if err != nil {
 			return err
 		}
-	case propeller.ProviderVsphere:
+	case propeller.ProviderVsphere, propeller.ProviderVKE:
 		var vsphere Vsphere
+		// Hack for VKE to use correct storage class
+		if interview.LocDeploy.Type == propeller.ProviderVKE {
+			interview.LocDeploy.Annotations = map[string]string{
+				"vke": "install",
+			}
+			interview.LocDeploy.Type = propeller.ProviderVsphere
+		}
 		json.Unmarshal(l, &vsphere)
 		err = action(&vsphere, interview)
 		if err != nil {

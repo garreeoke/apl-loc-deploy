@@ -31,7 +31,7 @@
       "actions": ["create", "import"],
       "title": "provider",
       "text" : "Cloud provider",
-      "accepted" : ["aws", "azure", "gke", "metal", "vsphere"]
+      "accepted" : ["aws", "azure", "gke", "metal", "vke", "vsphere"]
     },
     {
       "section": "general",

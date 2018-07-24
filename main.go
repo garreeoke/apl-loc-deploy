@@ -48,6 +48,7 @@ func main() {
 	interview.Reader = bufio.NewReader(os.Stdin)
 	interview.LocDeploy= &propeller.LocDeploy {
 		LocalScript: true,
+		Registry: propeller.Registry{},
 	}
 
 	// Start with general
