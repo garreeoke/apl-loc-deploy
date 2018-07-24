@@ -7,11 +7,6 @@ data:
   apl-api: https://api.applariat.io/v1
   apl-api-key:
   apl-cluster-mgr-tag: develop
-  conf.json: |
-    {
-       "api-url": "https://api.applariat.io/v1",
-       "propeller-ignore-ssl": "false"
-    }
   silent.json: |
     {
     	"questions": [{
