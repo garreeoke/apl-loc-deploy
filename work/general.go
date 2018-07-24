@@ -22,6 +22,11 @@ func GeneralQuestions(interview *Interview) error {
 				switch question.Title {
 				case "loc_deploy_name":
 					interview.LocDeploy.Name = question.Answer
+				case "registry_url":
+					interview.LocDeploy.Registry = propeller.Registry{
+						External: true,
+						Url: question.Answer,
+					}
 				case "action":
 					interview.Action = question.Answer
 					if interview.Action == ActionCreate {

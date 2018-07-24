@@ -48,6 +48,13 @@
     },
     {
       "section": "general",
+      "actions": ["create", "import"],
+      "title": "registry_url",
+      "text" : "Enter registry url",
+      "answer": "127.0.0.1:5000/"
+    },
+    {
+      "section": "general",
       "actions": ["create"],
       "title": "hosted_zone",
       "text" : "Hosted zone",

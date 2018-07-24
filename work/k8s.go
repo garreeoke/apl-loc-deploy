@@ -101,6 +101,7 @@ func postCred(aplCred *propeller.AplCred, interview *Interview) error {
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true,
 		},
 	}
+
 	client := http.Client{Transport: tr}
 	rc := propeller.RestClient{
 		Client: &client,
@@ -127,16 +128,18 @@ func postCred(aplCred *propeller.AplCred, interview *Interview) error {
 		return err
 	}
 
+
 	if rd.StatusCode == 400 {
+		fmt.Println("Post Cred Error: ", string(rd.Response))
 		return errors.New(string(rd.Response))
 	}
 
-	fmt.Println("CRED: ", string(rd.Response))
 	var data map[string]interface{}
 	err = json.Unmarshal(rd.Response, &data)
 	if err != nil {
 		return err
 	}
+
 
 	interview.LocDeploy.Cluster.CredentialId = data["data"].(string)
 

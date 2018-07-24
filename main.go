@@ -3,7 +3,7 @@ package main
 import (
 	propeller "applariat.io/propeller/types"
 	"fmt"
-	"github.com/applariat/apl-loc-deploy/work"
+	"github.com/garreeoke/apl-loc-deploy/work"
 	"bufio"
 	"os"
 	"flag"

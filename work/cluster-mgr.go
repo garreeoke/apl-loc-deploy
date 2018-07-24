@@ -57,6 +57,8 @@ func ClusterMgr(interview *Interview) error {
 }
 
 func k8Job(jobid string) error {
+
+
 	image := "applariat/cluster-manager"
 	if os.Getenv("APL_CLUSTER_MGR_TAG") != "" {
 		image = image + ":" + os.Getenv("APL_CLUSTER_MGR_TAG")
@@ -78,8 +80,16 @@ func k8Job(jobid string) error {
 		ApiToken: os.Getenv("APL_API_KEY"),
 		IgnoreCertValidation: true,
 	}
+	k8.Log = job.Log
+	err = propwork.AplJobPayload(&job)
+	if err != nil {
+		return err
+	}
 	// Setup the container object to use for the job
 	c, err := propcommon.ClusterMgrContainer(image, &job)
+	for _,co := range c.Env {
+		job.Log.Println("ENV KEY/Value: ", co.Name + "/" + co.Value)
+	}
 
 	// Get the k8 job definition
 	k8Job := k8.ClusterMgrJob(&job, c)
@@ -104,6 +114,7 @@ func k8Job(jobid string) error {
 	}
 	k8.DeleteJobPods(leaveJobPod, k8Job.Name)
 	_ = k8.DeleteSecret([]string{k8Job.Name})
+	k8.DeleteJob(&k8Job)
 	job.Log.Println("Cluster-mgr job completed")
 	return nil
 }
