@@ -1,0 +1,157 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apl-loc-deploy-create
+  namespace: kube-system
+data:
+  apl-api: https://api.applariat.io/v1
+  apl-api-key: a3a64cdfc9b214e019b25dd6699423aed01ac1db0ebc722a0502f705b01d41ba
+  apl-cluster-mgr-tag: develop
+  annotations.json: |
+    {
+        "vke": "true"
+    }
+  conf.json: |
+    {
+        "api-url": "https://api.applariat.io/v1",
+        "propeller-ignore-ssl": "false",
+        "rabbit-host": "amqp.applariat.io",
+        "rabbit-port": "5672",
+        "rabbitmq-ssl": "false"
+    }
+  silent.json: |
+    {
+    	"questions": [{
+    		"section": "general",
+    		"title": "action",
+    		"text": "Action",
+    		"accepted": ["create", "import", "delete"],
+    		"answer": "import"
+    	}, {
+    		"actions": ["create", "import"],
+    		"section": "general",
+    		"title": "loc_deploy_name",
+    		"text": "Cluster name",
+    		"answer": "aarontvke1"
+    	}, {
+    		"actions": ["create", "import"],
+    		"section": "general",
+    		"title": "provider",
+    		"text": "Cloud provider",
+    		"accepted": ["aws", "azure", "gke", "metal", "vke", "vsphere"],
+    		"answer": "vke"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_fqdn",
+    		"text": "Enter fqdn or ip for your kubernetes cluster",
+    		"answer": "xx.xx.xx.xx"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_port",
+    		"text": "Enter port for your kubernetes cluster",
+    		"answer": "443"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "auth_type",
+    		"text": "What type of authentication ",
+    		"accepted": ["basic", "certs"],
+    		"answer": "basic"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_fqdn",
+    		"text": "Enter fqdn or ip for your kubernetes cluster",
+    		"answer": "xx.xx.xx.xx"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_port",
+    		"text": "Enter port for your kubernetes cluster",
+    		"answer": "443"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "auth_type",
+    		"text": "What type of authentication ",
+    		"accepted": ["basic", "certs"],
+    		"answer": "basic"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_fqdn",
+    		"text": "Enter fqdn or ip for your kubernetes cluster",
+    		"answer": "xx.xx.xx.xx"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "kube_port",
+    		"text": "Enter port for your kubernetes cluster",
+    		"answer": "443"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "auth_type",
+    		"text": "What type of authentication ",
+    		"accepted": ["basic", "certs"],
+    		"answer": "basic"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "user",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user name: ",
+    		"answer": "pks1.k8"
+    	}, {
+    		"actions": ["import"],
+    		"section": "k8s",
+    		"title": "password",
+    		"type": "basic",
+    		"text": "Enter kubernetes cluster user password: ",
+    		"answer": "admin"
+    	}]
+    }

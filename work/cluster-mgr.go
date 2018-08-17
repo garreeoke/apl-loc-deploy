@@ -35,6 +35,8 @@ func ClusterMgr(interview *Interview) error {
 		jobid = os.Getenv("APL_LOC_JOBID")
 	}
 
+	fmt.Println("APL_JOB_ID: ", jobid)
+
 	// Launch on either local docker or as a k8s job?
 	if os.Getenv("APL_LAUNCHER") == "k8s" {
 		err := k8Job(jobid)
@@ -60,15 +62,15 @@ func k8Job(jobid string) error {
 
 
 	image := "applariat/cluster-manager"
-	if os.Getenv("APL_CLUSTER_MGR_TAG") != "" {
-		image = image + ":" + os.Getenv("APL_CLUSTER_MGR_TAG")
+	if os.Getenv(propeller.CLUSTER_MGR_APL_BUILD_IMAGE_TAG_KEY) != "" {
+		image = image + ":" + os.Getenv(propeller.CLUSTER_MGR_APL_BUILD_IMAGE_TAG_KEY)
 	}
 	k8 := kube.K8{
 		DeployID: "cluster-mgr",
 		Name: "cluster-mgr",
 		OnCluster: true,
 	}
-	err := k8.Auth()
+	err := k8.Auth(false)
 	if err != nil {
 		k8.Log.Println("K8 Auth error: ", err)
 		return err
@@ -85,6 +87,7 @@ func k8Job(jobid string) error {
 	if err != nil {
 		return err
 	}
+
 	// Setup the container object to use for the job
 	c, err := propcommon.ClusterMgrContainer(image, &job)
 	for _,co := range c.Env {
@@ -151,7 +154,6 @@ func cmdDockerRun(jobid string, interview *Interview) error {
 		return err
 	}
 	var cmError error
-
 	var confData []byte
 
 	if interview.Conf != "" {
@@ -160,6 +162,7 @@ func cmdDockerRun(jobid string, interview *Interview) error {
 			return err
 		}
 	}
+
 	go func(){
 		params := []string{
 			"run",

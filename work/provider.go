@@ -52,16 +52,16 @@ func ProviderQuestions(interview *Interview) error {
 		if err != nil {
 			return err
 		}
-	case propeller.ProviderVsphere, propeller.ProviderVKE:
+	case propeller.ProviderVsphere,propeller.ProviderVKE:
 		var vsphere Vsphere
-		// Hack for VKE to use correct storage class
-		if interview.LocDeploy.Type == propeller.ProviderVKE {
-			interview.LocDeploy.Annotations = map[string]string{
-				"vke": "install",
-			}
-			interview.LocDeploy.Type = propeller.ProviderVsphere
-		}
 		json.Unmarshal(l, &vsphere)
+		// Hack for VKE to use correct storage class
+		if vsphere.Type == propeller.ProviderVKE {
+			vsphere.Annotations = map[string]string{
+				"vke": "true",
+			}
+			vsphere.Type = propeller.ProviderVsphere
+		}
 		err = action(&vsphere, interview)
 		if err != nil {
 			return err
@@ -156,7 +156,7 @@ func AplLocDeploy(interview *Interview) error {
 		return err
 	}
 
-	fmt.Printf("Successfully posted loc_deploy to apl_api_url: %v \n", interview.RestData.URL)
+	fmt.Printf("Successfully %v loc_deploy to apl_api_url: %v \n", interview.RestData.Verb, interview.RestData.URL)
 	return nil
 
 }

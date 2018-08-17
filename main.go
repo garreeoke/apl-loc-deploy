@@ -12,6 +12,8 @@ import (
 var validate = []string{"APL_API_KEY","APL_API"}
 var answerFile = flag.String("answer-file", "", "Specify answerFile for interview files")
 var conf = flag.String("conf-file", "", "Conf file to use in current directory")
+//var registry = flag.String("reg-file", "", "File to use for registry info")
+//var notes = flag.String("notes-file", "", " File to use for annotations")
 var silent = flag.Bool("silent", false, "Install silently")
 
 func main() {
@@ -45,6 +47,9 @@ func main() {
 	}
 	interview.Silent = *silent
 	interview.Conf = *conf
+	//interview.Registry = *registry
+	//interview.Annotations = *notes
+
 	interview.Reader = bufio.NewReader(os.Stdin)
 	interview.LocDeploy= &propeller.LocDeploy {
 		LocalScript: true,
@@ -78,7 +83,7 @@ func main() {
 		return
 	}
 
-	// Get cluster mgr job and launch on local docker
+	// Get cluster mgr job and launch on local docker or k8s
 	err = work.ClusterMgr(&interview)
 	if err != nil {
 		fmt.Println(err)

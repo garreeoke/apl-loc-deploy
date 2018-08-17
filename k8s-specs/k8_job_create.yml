@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: apl-loc-deploy-create
+  namespace: kube-system
+spec:
+  template:
+    spec:
+      containers:
+      - name: apl-loc-deploy-create
+        image: garreeoke/apl-loc-deploy
+        imagePullPolicy: Always
+        env:
+        - name: APL_CONF
+          valueFrom:
+            configMapKeyRef:
+              name: apl-loc-deploy-create
+              key: conf.json
+        - name: APL_API_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: apl-loc-deploy-create
+              key: apl-api-key
+        - name: APL_API
+          valueFrom:
+            configMapKeyRef:
+              name: apl-loc-deploy-create
+              key: apl-api
+        - name: APL_LEAVE_JOB_POD
+          value: "true"
+        - name: PROPELLER_APL_BUILD_IMAGE_TAG
+          value: develop
+        - name: APL_BUILD_IMAGE_TAG
+          value: develop
+        - name: COMPONENT_BUILDER_APL_BUILD_IMAGE_TAG
+          value: develop
+        - name: APL_LAUNCHER
+          value: k8s
+        - name: NAMESPACE
+          value: kube-system
+        - name: CLUSTER_MGR_APL_BUILD_IMAGE_TAG
+          value: develop
+        volumeMounts:
+          - name: silent-json
+            mountPath: /apl-loc-deploy/interviews
+      volumes:
+        - name: silent-json
+          configMap:
+            name: apl-loc-deploy-create
+            items:
+              - key: silent.json
+                path: silent.json
+      restartPolicy: Never
+  backoffLimit: 4

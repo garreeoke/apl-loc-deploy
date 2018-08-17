@@ -14,6 +14,8 @@ type Interview struct {
 	LocDeploy  *propeller.LocDeploy `json:"-"`
 	ObjectId   string               `json:"-"`
 	Conf       string               `json:"-"`
+	//Registry   string			    `json:"-"`
+	//Annotations string			    `json:"-"`
 	Silent     bool                 `json:"-"`
 }
 
