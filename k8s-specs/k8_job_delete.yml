@@ -33,7 +33,7 @@ spec:
         - name: APL_LAUNCHER
           value: k8s
         - name: NAMESPACE
-          value: kube-system
+          value: applariat
         - name: CLUSTER_MGR_APL_BUILD_IMAGE_TAG
           value: develop
         volumeMounts:
