@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: apl-loc-deploy-create
-  namespace: applariat
+  namespace: default
 data:
   apl-api: https://api.applariat.io/v1
   apl-api-key: a3a64cdfc9b214e019b25dd6699423aed01ac1db0ebc722a0502f705b01d41ba
@@ -30,7 +30,7 @@ data:
     		"section": "general",
     		"title": "loc_deploy_name",
     		"text": "Cluster name",
-    		"answer": "vsphere-"
+    		"answer": "pks-1-k8s-1"
     	}, {
     		"actions": ["create", "import"],
     		"section": "general",

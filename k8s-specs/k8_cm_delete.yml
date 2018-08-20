@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: apl-loc-deploy-delete
-  namespace: applariat
+  namespace: default
 data:
   apl-api: https://api.applariat.io/v1
   apl-api-key: a3a64cdfc9b214e019b25dd6699423aed01ac1db0ebc722a0502f705b01d41ba

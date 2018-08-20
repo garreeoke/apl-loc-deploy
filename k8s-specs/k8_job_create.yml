@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: apl-loc-deploy-create
-  namespace: applariat
+  namespace: default
 spec:
   template:
     spec:
@@ -37,7 +37,7 @@ spec:
         - name: APL_LAUNCHER
           value: k8s
         - name: NAMESPACE
-          value: applariat
+          value: default
         - name: CLUSTER_MGR_APL_BUILD_IMAGE_TAG
           value: develop
         volumeMounts:
