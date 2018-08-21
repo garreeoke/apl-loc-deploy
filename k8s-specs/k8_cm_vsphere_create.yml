@@ -30,7 +30,7 @@ data:
     		"section": "general",
     		"title": "loc_deploy_name",
     		"text": "Cluster name",
-    		"answer": "pks-1-k8s-1"
+    		"answer": "pks_auto"
     	}, {
     		"actions": ["create", "import"],
     		"section": "general",

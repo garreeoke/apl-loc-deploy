@@ -10,6 +10,7 @@ import (
 	"errors"
 	"strconv"
 	"crypto/tls"
+	"applariat.io/propeller/kube"
 )
 
 const (
@@ -41,8 +42,27 @@ func CreateK8(interview *Interview) error {
 
 func questions(interview *Interview) error {
 
+	// PKS
+	if interview.LocDeploy.Name == "pks_auto" {
+		fmt.Println("PKS_AUTO_DETECTED")
+		k8 := kube.K8{
+			DeployID: "cluster-mgr",
+			Name: "cluster-mgr",
+			OnCluster: true,
+		}
+		err := k8.Auth(false)
+		if err != nil {
+			k8.Log.Println("K8 Auth error: ", err)
+			return err
+		}
+		interview.LocDeploy.Name = "pks-" + k8.NodeLabel("kubernetes.io/hostname") + "-" + k8.NodeLabel("bosh.id")
+		fmt.Println("PKS_AUTO_NEW_NAME: ", interview.LocDeploy.Name)
+		// Would love for it to be
+		//interview.LocDeploy.Name = k8.NodeLabel("pks.io/cluster-name")
+	}
+	interview.LocDeploy.Cluster.Name = interview.LocDeploy.Name
 	aplCred := propeller.AplCred{
-		Name: "k8-external-" + interview.LocDeploy.Name,
+		Name: "k8-ext-" + interview.LocDeploy.Name,
 		CredType: kubeCredType,
 	}
 	interviewK8s := Interview{}
@@ -84,7 +104,6 @@ func questions(interview *Interview) error {
 	}
 	credential.Value = cred_value
 	aplCred.Credentials = credential
-	interview.LocDeploy.Cluster.Name = interview.LocDeploy.Name
 
 	// Post the credential and get back id
 	err = postCred(&aplCred, interview)

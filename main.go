@@ -47,8 +47,6 @@ func main() {
 	}
 	interview.Silent = *silent
 	interview.Conf = *conf
-	//interview.Registry = *registry
-	//interview.Annotations = *notes
 
 	interview.Reader = bufio.NewReader(os.Stdin)
 	interview.LocDeploy= &propeller.LocDeploy {
